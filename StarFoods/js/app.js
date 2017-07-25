@@ -1,8 +1,8 @@
 var app = angular.module('RESTApp', ['ngRoute']);
-var url = 'http://localhost:8088/';
+var url = 'http://localhost:8080/';
 
 app.config(function($routeProvider){
-  var path = './views';
+  var path = './views/';
   $routeProvider
   .when('/', {
     templateUrl: path + 'main.html'
@@ -20,7 +20,7 @@ app.controller('foodsController', function($scope, $http){
     dataType: 'json',
     params: {}
   }).then(function(success){
-    $scope.name=success.data.name;
+    $scope.name = success.data.name;
 },  function(error){
   console.error(error);
 });
