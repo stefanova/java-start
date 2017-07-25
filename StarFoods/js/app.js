@@ -20,8 +20,13 @@ app.controller('foodsController', function($scope, $http){
     dataType: 'json',
     params: {}
   }).then(function(success){
-    $scope.name = success.data.name;
+      var root =$('.foods');
+      var foods = success.data;
+      for( var i = 0; i < foods.length; i++){ 
+$('<tr/>').html(foods[i].name + foods[i].brand).appendTo(root);
+      }
 },  function(error){
   console.error(error);
 });
 });
+
