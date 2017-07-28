@@ -30,15 +30,14 @@ public class FoodsController {
     @RequestMapping("/add")
     public Foods addFood(@RequestParam(name = "name") String name,
                             @RequestParam(name = "brand") String brand,
-                            @RequestParam(name = "description") String description,
-                            @RequestParam(name = "image") String image,
-                            @RequestParam(name = "price") String price) {
+                            @RequestParam(name = "comment") String comment,
+                            @RequestParam(name = "image") String image) {
         Foods foods = new Foods();
+
         foods.setName(name);
         foods.setBrand(brand);
-        foods.setDescription(description);
+        foods.setComment(comment);
         foods.setImage(image);
-        foods.setPrice(Double.parseDouble(price));
 
         return foodsRepository.save(foods);
     }

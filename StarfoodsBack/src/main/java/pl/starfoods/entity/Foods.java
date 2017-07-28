@@ -1,7 +1,5 @@
 package pl.starfoods.entity;
 
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,18 +13,14 @@ public class Foods {
     private long id;
     private String name;
     private String brand;
-    private String description;
+    private String comment;
     private String image;
-    private double price;
-    private boolean best;
 
-    public Foods(long id, String name, String brand, String description, String image, double price, boolean best) {
+    public Foods(long id, String name, String brand, String comment, String image) {
         this.name = name;
         this.brand = brand;
-        this.description = description;
+        this.comment = comment;
         this.image = image;
-        this.price = price;
-        this.best = best;
     }
 
     public Foods(){}
@@ -61,18 +55,10 @@ public class Foods {
         this.image = image;
     }
 
-    public double getPrice() {return price;}
 
-    public void setPrice(double price) {this.price = price;}
+    public String getComment() {return comment;}
 
-    public boolean isBest() {return best;}
-
-    public void setBest(boolean best) {this.best = best;}
-
-
-    public String getDescription() {return description;}
-
-    public void setDescription(String description) {this.description = description;}
+    public void setComment(String comment) {this.comment = comment;}
 
 
 }
