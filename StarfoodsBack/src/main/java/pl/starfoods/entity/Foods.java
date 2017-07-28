@@ -1,5 +1,7 @@
 package pl.starfoods.entity;
 
+import pl.starfoods.enums.FoodType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,16 +15,21 @@ public class Foods {
     private long id;
     private String name;
     private String brand;
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
+    private String description;
     private String image;
+    private double price;
+    private FoodType foodType;
+    private boolean best;
+
+    public Foods(long id, String name, String brand, String description, String image, double price, FoodType foodType, boolean best) {
+        this.name = name;
+        this.brand = brand;
+        this.description = description;
+        this.image = image;
+        this.price = price;
+        this.foodType = foodType;
+        this.best = best;
+    }
 
     public Foods(){}
 
@@ -50,12 +57,28 @@ public class Foods {
         this.brand = brand;
     }
 
-    public Foods(long id, String name, String brand, String image){
-        this.id = id;
-        this.name = name;
-        this.brand = brand;
+    public String getImage() {return image;}
+
+    public void setImage(String image) {
         this.image = image;
-
-
     }
+
+    public double getPrice() {return price;}
+
+    public void setPrice(double price) {this.price = price;}
+
+    public FoodType getFoodType() {return foodType;}
+
+    public void setFoodType(FoodType foodType) {this.foodType = foodType;}
+
+    public boolean isBest() {return best;}
+
+    public void setBest(boolean best) {this.best = best;}
+
+
+    public String getDescription() {return description;}
+
+    public void setDescription(String description) {this.description = description;}
+
+
 }
