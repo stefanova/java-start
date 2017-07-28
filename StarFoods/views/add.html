@@ -1,4 +1,4 @@
-<!-- <div class="well">
+ <div class="well">
 <div class="row">
         <div class="col-md-12">
             <p>{{ message }}</p>
@@ -7,11 +7,25 @@
     <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Wpisz nazwę produktu" ng-model="productName">
+            <label>Nazwa</label><input type="text" class="form-control" placeholder="Podaj nazwę produktu" ng-model="name">
+            <label>Marka</label><input type="text" class="form-control" placeholder="Podaj markę produktu" ng-model="brand">
+            <label>Opis</label><textarea  class="form-control" placeholder="Dodaj opis" ng-model="description"></textarea>
+            <label>Zdjęcie</label><input type="url" class="form-control" placeholder="Wklej link do zdjęcia" ng-model="image">
+            <label>Cena</label><input type="text" class="form-control" placeholder="Podaj cenę" ng-model="price">
+             <label>Oznaczenie</label> <select ng-model="food">
+            <option checked>---</option>
+            <option ng-repeat="foodType in foodTypes" value="{{foodType.id}}">{{foodType.value}} </option>
+
+            </select>
+   
             <span class="input-group-btn">
-                <button class="btn btn-success" type="button" ng-click="add()">Dodaj </button>
+                <button class="btn btn-success m-t-30" type="button" ng-click="add()">Dodaj </button>            
             </span>
         </div>
     </div>
     </div>
-</div> -->
+</div> 
+
+//czy option moze byc ustawione na domyslne
+//czy w cenie type dodac "number", text i sparsowac do double, ale gdzie?
+//enum, dodac na sztywno czy w bracketsach, bo co jak dodam kilka nowych w backendzie?

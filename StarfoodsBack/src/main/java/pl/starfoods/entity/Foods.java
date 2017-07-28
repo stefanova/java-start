@@ -1,6 +1,6 @@
 package pl.starfoods.entity;
 
-import pl.starfoods.enums.FoodType;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,16 +18,14 @@ public class Foods {
     private String description;
     private String image;
     private double price;
-    private FoodType foodType;
     private boolean best;
 
-    public Foods(long id, String name, String brand, String description, String image, double price, FoodType foodType, boolean best) {
+    public Foods(long id, String name, String brand, String description, String image, double price, boolean best) {
         this.name = name;
         this.brand = brand;
         this.description = description;
         this.image = image;
         this.price = price;
-        this.foodType = foodType;
         this.best = best;
     }
 
@@ -66,10 +64,6 @@ public class Foods {
     public double getPrice() {return price;}
 
     public void setPrice(double price) {this.price = price;}
-
-    public FoodType getFoodType() {return foodType;}
-
-    public void setFoodType(FoodType foodType) {this.foodType = foodType;}
 
     public boolean isBest() {return best;}
 

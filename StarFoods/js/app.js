@@ -10,6 +10,10 @@ app.config(function($routeProvider){
   .when('/foods',{
     templateUrl: path + 'foods.html',
     controller: 'foodsController'
+  })
+    .when('/foods/add', {
+      templateUrl: path + 'add.html',
+      controller: 'addController'
   });
 });
 
@@ -25,4 +29,14 @@ app.controller('foodsController', function($scope, $http){
       console.error(error);
     });
 });
+
+app.controller('addController', function($scope, $http){
+    $http({
+        url: url + 'foodType/show',
+        dataType: 'json'
+    }).then(function(success){
+        $scope.foodTypes;
+    });
+})
+
 

@@ -4,7 +4,7 @@ package pl.starfoods.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.starfoods.entity.Foods;
-import pl.starfoods.enums.FoodType;
+
 import pl.starfoods.repository.FoodsRepository;
 
 import java.util.List;
@@ -32,15 +32,14 @@ public class FoodsController {
                             @RequestParam(name = "brand") String brand,
                             @RequestParam(name = "description") String description,
                             @RequestParam(name = "image") String image,
-                            @RequestParam(name = "image") double price,
-                            @RequestParam(name = "image") FoodType foodType) {
+                            @RequestParam(name = "price") String price) {
         Foods foods = new Foods();
         foods.setName(name);
         foods.setBrand(brand);
         foods.setDescription(description);
         foods.setImage(image);
-        foods.setPrice(price);
-        foods.setFoodType(foodType);
+        foods.setPrice(Double.parseDouble(price));
+
         return foodsRepository.save(foods);
     }
 }
