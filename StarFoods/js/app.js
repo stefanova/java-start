@@ -16,17 +16,13 @@ app.config(function($routeProvider){
 app.controller('foodsController', function($scope, $http){
   $scope.message = "Lista wszystich dostępnych produktów. Jeżeli nie ma tego, czego szukasz <<dodaj>> produkt do bazy.";
   $http({
-    url: url + 'foods',
+    url: url + 'foods/show',
     dataType: 'json',
-    params: {}
+
   }).then(function(success){
-      var root =$('.foods');
-      var foods = success.data;
-      for( var i = 0; i < foods.length; i++){ 
-$('<tr/>').html(foods[i].name + foods[i].brand).appendTo(root);
-      }
-},  function(error){
-  console.error(error);
-});
+     $scope.foods = success.data
+    },  function(error){
+      console.error(error);
+    });
 });
 
