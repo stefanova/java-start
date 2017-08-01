@@ -77,6 +77,9 @@ app.controller('productController', function($scope, $http, $routeParams){
         console.error(error);
     });
     
+    $scope.stars = function( e ){
+        console.log($('.stars > input:checked').val());
+    }
 });
 
 
