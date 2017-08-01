@@ -7,36 +7,76 @@ app.config(function($routeProvider){
   .when('/', {
     templateUrl: path + 'main.html'
   })
-  .when('/foods',{
-    templateUrl: path + 'foods.html',
-    controller: 'foodsController'
+  .when('/show',{
+    templateUrl: path + 'products.html',
+    controller: 'showController'
   })
-    .when('/foods/add', {
+    .when('/add', {
       templateUrl: path + 'add.html',
       controller: 'addController'
+  })
+    .when('/show/:id',{
+      templateUrl: path + 'product.html',
+      controller: 'productController'
   });
 });
 
-app.controller('foodsController', function($scope, $http){
-  $scope.message = "Lista wszystich dostępnych produktów. Jeżeli nie ma tego, czego szukasz <<dodaj>> produkt do bazy.";
+app.controller('showController', function($scope, $http){
+ 
   $http({
-    url: url + 'foods/show',
-    dataType: 'json',
-
+    url: url + 'products/show',
+      dataType: 'json'
   }).then(function(success){
-     $scope.foods = success.data
+     $scope.products = success.data
     },  function(error){
       console.error(error);
     });
 });
 
 app.controller('addController', function($scope, $http){
+   
     $http({
-        url: url + 'foodType/show',
+    url: url + 'products/show',
         dataType: 'json'
-    }).then(function(success){
-        $scope.foodTypes;
+  }).then(function(success){
+     $scope.products = success.data
+    },  function(error){
+      console.error(error);
     });
-})
+
+    $scope.add = function(){ 
+    
+        $http({
+        url: url + 'products/add',
+        method: 'GET',
+        dataType: 'json',
+        params: {
+            name: $scope.name,
+            brand: $scope.brand,
+            comment: $scope.comment,
+            image: $scope.image
+        }
+    }).then(function(success){
+        console.log(success);
+        $scope.message = "Poprawnie dodano produkt"
+    }, function(error) {
+        console.error(error)
+    });
+        
+    }
+});
+
+app.controller('productController', function($scope, $http, $routeParams){
+   var id = $routeParams.id;
+    $http({
+        url: url + 'products/show/' + id,
+        dataType: 'json'
+        }).then( function (success){
+        $scope.product = success.data;
+    }, function(error){
+        console.error(error);
+    });
+    
+});
 
 

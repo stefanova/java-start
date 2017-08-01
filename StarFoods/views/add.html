@@ -7,25 +7,18 @@
     <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <div class="input-group">
-            <label>Nazwa</label><input type="text" class="form-control" placeholder="Podaj nazwę produktu" ng-model="name">
-            <label>Marka</label><input type="text" class="form-control" placeholder="Podaj markę produktu" ng-model="brand">
-            <label>Opis</label><textarea  class="form-control" placeholder="Dodaj opis" ng-model="description"></textarea>
-            <label>Zdjęcie</label><input type="url" class="form-control" placeholder="Wklej link do zdjęcia" ng-model="image">
-            <label>Cena</label><input type="text" class="form-control" placeholder="Podaj cenę" ng-model="price">
-             <label>Oznaczenie</label> <select ng-model="food">
-            <option checked>---</option>
-            <option ng-repeat="foodType in foodTypes" value="{{foodType.id}}">{{foodType.value}} </option>
-
-            </select>
+            <label>Nazwa<input type="text" class="form-control" placeholder="Podaj nazwę produktu" ng-model="name"></label><br/>
+            
+            <label>Marka<input type="text" class="form-control" placeholder="Podaj markę produktu" ng-model="brand"></label><br/>
+            
+            <label>Zdjęcie<input type="url" class="form-control" placeholder="Wklej link do zdjęcia" ng-model="image"></label><br/>
+            
+              <label>Komentarz<textarea  class="form-control" placeholder="Dodaj komentarz" ng-model="comment"></textarea></label><br/>
+    
    
-            <span class="input-group-btn">
-                <button class="btn btn-success m-t-30" type="button" ng-click="add()">Dodaj </button>            
-            </span>
+                <button class="btn btn-success m-t-30 nput-group-btn" type="button" ng-click="add()">Dodaj </button>            
+         
         </div>
     </div>
     </div>
 </div> 
-
-//czy option moze byc ustawione na domyslne
-//czy w cenie type dodac "number", text i sparsowac do double, ale gdzie?
-//enum, dodac na sztywno czy w bracketsach, bo co jak dodam kilka nowych w backendzie?
