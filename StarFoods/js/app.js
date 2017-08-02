@@ -53,7 +53,7 @@ app.controller('addController', function($scope, $http){
     });
 
     $scope.add = function(){ 
-    
+        
         $http({
         url: url + 'products/add',
         method: 'GET',

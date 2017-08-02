@@ -1,7 +1,7 @@
 <div class="well">
     <h3>Wszystkie produkty: </h3>
     <ul>
-    <li ng-repeat="product in products"> <a href="/#!show/{{ product.id}}"> {{product.name}} </a></li>
+    <li ng-repeat="product in products | orderBy: 'name'"> <a href="/#!show/{{ product.id}}"> {{product.name}} </a></li>
         
     </ul>
 </div>
