@@ -2,7 +2,9 @@ package pl.starfoods.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.*;
+import pl.starfoods.ProductWithScore;
 import pl.starfoods.entity.Product;
 
 import pl.starfoods.entity.Rating;
@@ -18,9 +20,6 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
-
-    @Autowired
-    private RatingRepository ratingRepository;
 
     @RequestMapping("/")
     public String products() {
@@ -52,6 +51,10 @@ public class ProductController {
         return productRepository.findOne(Long.valueOf(id));
     }
 
+    @RequestMapping("/scores")
+    public List<ProductWithScore> showProductsScore() {
+        return (List<ProductWithScore>) productRepository.findProductsWithScore();
+    }
 
 
 }
