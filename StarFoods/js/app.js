@@ -23,7 +23,7 @@ app.config(function($routeProvider){
       templateUrl: path + 'product.html',
       controller: 'productController'
   })
-    .when('/showbest',{
+    .when('/scores',{
       templateUrl: path + 'best.html',
       controller: 'ratingController'
   });
@@ -104,7 +104,7 @@ app.controller('productController', function($scope, $http, $routeParams){
 
 app.controller('ratingController', function($scope, $http){
     $http({ 
-        url: url + 'products/showbest',
+        url: url + 'products/scores',
         dataType: 'json'
     }).then( function(success){
         $scope.products = success.data

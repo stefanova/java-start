@@ -2,7 +2,7 @@
 <div class="well">
     <h3>Ranking produktow</h3>
     <ul>
-        <li ng-repeat="product in products"> <a href="/#!show/{{ product.id}}"> {{product.name}} </a> {{product.ratings}} </li>
+        <li ng-repeat="product in products" > <a href="/#!show/{{ product.id}}"> {{product.name}} </a> {{product.score | number:1}} </li>
         
     </ul>
 </div>

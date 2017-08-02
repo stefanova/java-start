@@ -28,7 +28,7 @@ body{
 
 .stars label::before{
     content: '☆';
-    color: #c0c0c0;
+    color: #ffa500;
     font-size: 30px;
     line-height: 30px;
     margin-right: -100%;
@@ -38,6 +38,7 @@ body{
 label:hover::before,
 label:hover ~ label::before, 
 .stars input:checked ~ label::before {
+    content: '★';
     color: #ffa500;
 }
 

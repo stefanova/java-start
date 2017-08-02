@@ -2,10 +2,9 @@ package pl.starfoods;
 
     public interface ProductWithScore {
 
-        //    String getId();
+            String getId();
         String getName();
-        //    String getBrand();
-//    String getDescription();
+//            String getBrand();
         double getScore();
     }
 

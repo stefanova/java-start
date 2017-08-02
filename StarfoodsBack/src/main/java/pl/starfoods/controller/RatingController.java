@@ -34,8 +34,8 @@ public class RatingController {
         return ratingRepository.save(r);
     }
 
-    @RequestMapping("/showbest")
-    public List<Product> ratingList() {
-        return (List<Product>) productRepository.findAll();
-    }
+//    @RequestMapping("/showbest")
+//    public List<Product> ratingList() {
+//        return (List<Product>) productRepository.findAll();
+//    }
 }
