@@ -7,6 +7,8 @@ import pl.starfoods.entity.Rating;
 import pl.starfoods.repository.ProductRepository;
 import pl.starfoods.repository.RatingRepository;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/products")
@@ -30,5 +32,10 @@ public class RatingController {
         r.setProduct(p);
 
         return ratingRepository.save(r);
+    }
+
+    @RequestMapping("/showbest")
+    public List<Product> ratingList() {
+        return (List<Product>) productRepository.findAll();
     }
 }

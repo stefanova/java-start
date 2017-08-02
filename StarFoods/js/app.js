@@ -22,6 +22,10 @@ app.config(function($routeProvider){
     .when('/rate/:id',{
       templateUrl: path + 'product.html',
       controller: 'productController'
+  })
+    .when('/showbest',{
+      templateUrl: path + 'best.html',
+      controller: 'ratingController'
   });
 });
 
@@ -93,10 +97,20 @@ app.controller('productController', function($scope, $http, $routeParams){
         }).then(function (success){
             $scope.message = "Twoja ocena została zapisana. Dziękujemy!"
            
-        })
-        
-        
+        })   
     }
 });
 
+
+app.controller('ratingController', function($scope, $http){
+    $http({ 
+        url: url + 'products/showbest',
+        dataType: 'json'
+    }).then( function(success){
+        $scope.products = success.data
+    }, function(error){
+        console.error(error);
+    });
+    
+});
 
