@@ -40,3 +40,7 @@ label:hover ~ label::before,
 .stars input:checked ~ label::before {
     color: #ffa500;
 }
+
+
+
+

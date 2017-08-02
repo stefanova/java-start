@@ -18,6 +18,10 @@ app.config(function($routeProvider){
     .when('/show/:id',{
       templateUrl: path + 'product.html',
       controller: 'productController'
+  })
+    .when('/rate/:id',{
+      templateUrl: path + 'product.html',
+      controller: 'productController'
   });
 });
 
@@ -70,15 +74,28 @@ app.controller('productController', function($scope, $http, $routeParams){
    var id = $routeParams.id;
     $http({
         url: url + 'products/show/' + id,
-        dataType: 'json'
+        dataType: 'json'   
         }).then( function (success){
         $scope.product = success.data;
     }, function(error){
         console.error(error);
     });
     
-    $scope.stars = function( e ){
-        console.log($('.stars > input:checked').val());
+    $scope.stars = function(){
+        
+        var value = $('.stars > input:checked').val();
+        $http({
+            url: url + 'products/rate/' +id,
+            dataType: 'json',
+            params: {
+                value: value
+            }
+        }).then(function (success){
+            $scope.message = "Twoja ocena została zapisana. Dziękujemy!"
+           
+        })
+        
+        
     }
 });
 

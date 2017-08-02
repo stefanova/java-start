@@ -1,9 +1,9 @@
 package pl.starfoods.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -15,6 +15,17 @@ public class Product {
     private String brand;
     private String comment;
     private String image;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "product")
+    private List<Rating> ratings;
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
 
     public Product(long id, String name, String brand, String comment, String image) {
         this.name = name;

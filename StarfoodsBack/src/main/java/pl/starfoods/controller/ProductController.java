@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.starfoods.entity.Product;
 
+import pl.starfoods.entity.Rating;
 import pl.starfoods.repository.ProductRepository;
+import pl.starfoods.repository.RatingRepository;
 
 import java.util.List;
 
@@ -16,6 +18,9 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private RatingRepository ratingRepository;
 
     @RequestMapping("/")
     public String products() {
@@ -43,8 +48,22 @@ public class ProductController {
     }
 
     @RequestMapping("/show/{id}")
-    public Product showProductById(@PathVariable ("id") String id){return productRepository.findOne(Long.valueOf(id));
+    public Product showProductById(@PathVariable ("id") String id){
+        return productRepository.findOne(Long.valueOf(id));
+    }
 
+    @RequestMapping("/rate/{id}")
+    public Rating rateProduct(@PathVariable("id") String id,
+                              @RequestParam(name = "value") String ratingValue){
+        long productId = Long.valueOf(id);
+        int score = Integer.valueOf(ratingValue);
+        Product p = productRepository.findOne(productId);
+        Rating r = new Rating();
+
+        r.setRating_value(score);
+        r.setProduct(p);
+
+        return ratingRepository.save(r);
     }
 
 }
