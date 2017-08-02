@@ -35,11 +35,11 @@ body{
 }
 
 
-label:hover::before,
-label:hover ~ label::before, 
+.starLabel:hover::before,
+.starLabel:hover ~ label::before, 
 .stars input:checked ~ label::before {
-    content: '★';
     color: #ffa500;
+    content: '★';
 }
 
 
