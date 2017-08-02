@@ -52,19 +52,7 @@ public class ProductController {
         return productRepository.findOne(Long.valueOf(id));
     }
 
-    @RequestMapping("/rate/{id}")
-    public Rating rateProduct(@PathVariable("id") String id,
-                              @RequestParam(name = "value") String ratingValue){
-        long productId = Long.valueOf(id);
-        int score = Integer.valueOf(ratingValue);
-        Product p = productRepository.findOne(productId);
-        Rating r = new Rating();
 
-        r.setRating_value(score);
-        r.setProduct(p);
-
-        return ratingRepository.save(r);
-    }
 
 }
 
