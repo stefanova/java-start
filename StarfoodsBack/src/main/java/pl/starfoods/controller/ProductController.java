@@ -51,10 +51,7 @@ public class ProductController {
         return productRepository.findOne(Long.valueOf(id));
     }
 
-    @RequestMapping("/scores")
-    public List<ProductWithScore> showProductsScore() {
-        return (List<ProductWithScore>) productRepository.findProductsWithScore();
-    }
+
 
 
 }

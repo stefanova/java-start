@@ -99,6 +99,7 @@ app.controller('productController', function($scope, $http, $routeParams){
            
         })   
     }
+    
 });
 
 
