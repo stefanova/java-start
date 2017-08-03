@@ -5,7 +5,8 @@ app.config(function($routeProvider){
   var path = './views/';
   $routeProvider
   .when('/', {
-    templateUrl: path + 'main.html'
+    templateUrl: path + 'main.html',
+    controller: 'searchController'
   })
   .when('/show',{
     templateUrl: path + 'products.html',
@@ -26,7 +27,7 @@ app.config(function($routeProvider){
     .when('/scores',{
       templateUrl: path + 'best.html',
       controller: 'ratingController'
-  });
+  })
 });
 
 app.controller('showController', function($scope, $http){
@@ -41,7 +42,7 @@ app.controller('showController', function($scope, $http){
     });
 });
 
-app.controller('addController', function($scope, $http){
+app.controller('addController', function($scope, $http, $window){
    
     $http({
     url: url + 'products/show',
@@ -65,8 +66,9 @@ app.controller('addController', function($scope, $http){
             image: $scope.image
         }
     }).then(function(success){
-        console.log(success);
-        $scope.message = "Poprawnie dodano produkt"
+        
+         $window.location.href = "/#!show";
+            
     }, function(error) {
         console.error(error)
     });
@@ -119,5 +121,24 @@ app.controller('ratingController', function($scope, $http){
         console.error(error);
     });
     
+});
+
+app.controller('searchController', function($scope, $http){
+    
+    $scope.search = function(){
+       $http({
+        url: url + 'products/search',
+        method: 'GET',
+        dataType: 'json',
+        params: {
+            userInput: $scope.userInput
+        }
+    }).then(function(success){
+        $scope.products= success.data
+    }, function(error) {
+        console.error(error)
+    });
+        
+    }
 });
 

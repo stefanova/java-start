@@ -6,7 +6,7 @@
     </div>
     <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <div class="input-group">
+        <div class="input-group " >
             <label>Nazwa<input type="text" class="form-control" placeholder="Podaj nazwę produktu" ng-model="name"></label><br/>
             
             <label>Marka<input type="text" class="form-control" placeholder="Podaj markę produktu" ng-model="brand"></label><br/>
@@ -16,7 +16,7 @@
               <label>Komentarz<textarea  class="form-control" placeholder="Dodaj komentarz" ng-model="comment"></textarea></label><br/>
     
    
-                <button class="btn btn-success m-t-30 nput-group-btn" type="button" ng-click="add()">Dodaj </button>            
+                <button class="btn btn-success m-t-30 nput-group-btn" type="button" data-keyboard="true" ng-click="add(); redirect()">Dodaj </button>            
          
         </div>
     </div>

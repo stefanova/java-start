@@ -24,7 +24,7 @@ public class ProductController {
     @RequestMapping("/search")
     public List<Product> productsSearchEngine(@RequestParam(name = "userInput") String userInput)
     {
-        return productRepository.findProductsByNameIsLike(userInput + "%");
+        return productRepository.findProductsByNameContainingIgnoreCase(userInput + "%");
     }
 
     @RequestMapping("/show")
