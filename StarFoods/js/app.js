@@ -81,6 +81,12 @@ app.controller('productController', function($scope, $http, $routeParams){
         dataType: 'json'   
         }).then( function (success){
         $scope.product = success.data;
+        var ratings = 0;
+        for(var rate of $scope.product.ratings) {
+            ratings += rate.rating_value;
+        }
+        ratings /= $scope.product.ratings.length;
+        $scope.product.score = ratings;
     }, function(error){
         console.error(error);
     });
