@@ -21,9 +21,10 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @RequestMapping("/")
-    public String products() {
-        return "";
+    @RequestMapping("/search")
+    public List<Product> productsSearchEngine(@RequestParam(name = "userInput") String userInput)
+    {
+        return productRepository.findProductsByNameIsLike(userInput + "%");
     }
 
     @RequestMapping("/show")
