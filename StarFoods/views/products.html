@@ -1,4 +1,5 @@
 <div class="well">
+    <p> {{message}} </p>
     <h3>Wszystkie produkty: </h3>
     <ul>
     <li ng-repeat="product in products | orderBy: 'name'"> <a href="/#!show/{{ product.id}}"> {{product.name}} </a></li>

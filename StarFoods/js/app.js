@@ -30,19 +30,37 @@ app.config(function($routeProvider){
   })
 });
 
-app.controller('showController', function($scope, $http){
+app.service('addMsgService', function(){
+    this.message = undefined;
+    this.addMsg = function(message){
+        this.message = message;
+    }
+    this.getMsg = function(){
+        var message = this.message;
+        this.message = undefined;
+        return message;
+    }
+  
+});
+
+app.controller('showController', function($scope, $http, $timeout, addMsgService){
  
   $http({
     url: url + 'products/show',
       dataType: 'json'
   }).then(function(success){
-     $scope.products = success.data
+      $scope.products = success.data
+      $scope.message = addMsgService.getMsg();
+      $timeout(function(){
+          $scope.message = undefined;
+      }, 2000);
+     
     },  function(error){
       console.error(error);
     });
 });
 
-app.controller('addController', function($scope, $http, $window){
+app.controller('addController', function($scope, $http, $window, addMsgService){
    
     $http({
     url: url + 'products/show',
@@ -66,7 +84,7 @@ app.controller('addController', function($scope, $http, $window){
             image: $scope.image
         }
     }).then(function(success){
-        
+          $scope.message =  addMsgService.addMsg("Produkt dodano pomyślnie!") 
          $window.location.href = "/#!show";
             
     }, function(error) {
@@ -141,4 +159,8 @@ app.controller('searchController', function($scope, $http){
         
     }
 });
+
+
+
+
 
