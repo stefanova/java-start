@@ -1,8 +1,10 @@
-<div class="well">
+<div class="well col-lg-12">
     <p> {{message}} </p>
     <h3>Wszystkie produkty: </h3>
+    <div class="col-lg-3 col-md-4 col-sm-6"> 
     <ul>
-    <li ng-repeat="product in products | orderBy: 'name'"> <a href="/#!show/{{ product.id}}"> {{product.name}} </a></li>
+    <li ng-repeat="product in products | orderBy: 'name'"> <p> <a href="/#!show/{{ product.id}}"> {{product.name}} </a> {{product.brand}} </p> <img ng-src="{{product.image}}"/></li>
         
     </ul>
+        </div>
 </div>

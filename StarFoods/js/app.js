@@ -1,4 +1,4 @@
-var app = angular.module('RESTApp', ['ngRoute']);
+var app = angular.module('RESTApp', ['ngRoute', 'ui.bootstrap']);
 var url = 'http://localhost:8080/';
 
 app.config(function($routeProvider){
@@ -29,6 +29,8 @@ app.config(function($routeProvider){
       controller: 'ratingController'
   })
 });
+
+
 
 app.service('addMsgService', function(){
     this.message = undefined;
@@ -145,20 +147,34 @@ app.controller('searchController', function($scope, $http){
     
     $scope.search = function(){
        $http({
-        url: url + 'products/search',
-        method: 'GET',
-        dataType: 'json',
-        params: {
-            userInput: $scope.userInput
-        }
-    }).then(function(success){
-        $scope.products= success.data
-    }, function(error) {
-        console.error(error)
-    });
-        
+            url: url + 'products/search',
+            method: 'GET',
+            dataType: 'json',
+            params: {
+                userInput: $scope.asyncSelected
+            }
+        }).then(function(success){
+            $scope.products = success.data
+        }, function(error) {
+            console.error(error)
+        });   
     }
+    
+    $scope.getLocation = function(val) {
+        return $http.get(url + 'products/search', {
+          params: {
+            userInput: val,
+          }
+        }).then(function(response){
+          return response.data.map(function(item){
+            return item.name;
+          });
+        });
+      };
+
 });
+
+
 
 
 

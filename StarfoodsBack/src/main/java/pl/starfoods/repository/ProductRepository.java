@@ -14,9 +14,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>, CrudRep
     @Query(value ="SELECT p.id AS id, p.name AS name, SUM(r.rating_value) / COUNT(r.id) AS score FROM Product p, Rating r WHERE p.id = r.product_id GROUP BY r.product_id ORDER BY score DESC", nativeQuery = true)
     public List<ProductWithScore> findProductsWithScore();
 
-
-
     List<Product> findProductsByNameContainingIgnoreCase(String name);
+
 
 
 }
