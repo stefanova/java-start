@@ -73,7 +73,14 @@ app.controller('addController', function($scope, $http, $window, addMsgService){
     },  function(error){
       console.error(error);
     });
-
+    
+    $scope.submitForm =function(){
+        
+        if($scope.addForm.$valid){
+           $scope.add();            
+        }
+    }
+    
     $scope.add = function(){ 
         
         $http({
@@ -87,6 +94,7 @@ app.controller('addController', function($scope, $http, $window, addMsgService){
             image: $scope.image
         }
     }).then(function(success){
+
           $scope.message =  addMsgService.addMsg("Produkt dodano pomyślnie!") 
          $window.location.href = "/#!show";
             
@@ -94,7 +102,12 @@ app.controller('addController', function($scope, $http, $window, addMsgService){
         console.error(error)
     });
         
-    }
+    } 
+
+   
+
+    
+    
 });
 
 app.controller('productController', function($scope, $http, $routeParams){
@@ -147,9 +160,6 @@ app.controller('ratingController', function($scope, $http){
 app.controller('searchController', function($scope, $http){
     
     $scope.search = function(){
-        
-        if($scope.asyncSelected == undefined) { 
-        console.log("bleee")} else { 
        $http({
             url: url + 'products/search',
             method: 'GET',
@@ -163,7 +173,7 @@ app.controller('searchController', function($scope, $http){
             console.error(error)
         });   
     }
-    }
+    
     $scope.getLocation = function(val) {
         return $http.get(url + 'products/search', {
           params: {
