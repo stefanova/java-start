@@ -10,5 +10,10 @@ body{
     background: beige;
 }
 
+.productDisplay{
+    border: solid;
+    box-sizing: inherit;
+}
+
 
 

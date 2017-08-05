@@ -1,8 +1,8 @@
 
-<div class="well">
+<div class="well col-xs-12">
     <h3>Ranking produktow</h3>
-    <ul>
-        <li ng-repeat="product in products" > <a href="/#!show/{{ product.id}}"> {{product.name}} </a> {{product.score | number:1}} </li>
+   
+        <p class="col-lg-2 col-md-4 col-sm-6 thumbnail" ng-repeat="product in products" > <a href="/#!show/{{ product.id}}"> {{product.name}} </a> {{product.score | number:1}} </p>
         
-    </ul>
+   
 </div>
