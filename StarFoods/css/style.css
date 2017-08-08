@@ -95,8 +95,13 @@ body {
     
 }
 
+.btn-success:focus, .btn-success:hover{
+    background-color: #FFC600;
+    border: #FFC600;
+}
+
 .btn-success.disabled, .btn-success.disabled.active, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled:focus, .btn-success.disabled:hover, .btn-success[disabled], .btn-success[disabled].active, .btn-success[disabled].focus, .btn-success[disabled]:active, .btn-success[disabled]:focus, .btn-success[disabled]:hover, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success.active, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:hover{
-   background-image: linear-gradient(to bottom, #FFC600 0,#FFDA58 100%);
+   background-image: linear-gradient(to bottom, #FFC600 0,#FFC600 100%);
     background-color: #FFC600;
     border-color: #FFC600;
 }
@@ -115,7 +120,9 @@ body {
 }
 
 .pScore{
-    background-color: coral;
+    border: solid #FFDA58;
+    font-size: 1em;
+    font-weight: 700;
 }
 
 .productImg{
