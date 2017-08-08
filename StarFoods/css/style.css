@@ -131,6 +131,25 @@ body {
     height: 280px;
 }
 
+.footer{
+/*    padding-top: 16px;*/
+	padding-right: 0;
+	padding-left: 0;	border-top-width: 4px;
+	border-top-style: solid;
+	border-top-color: #003;
+    text-align: right;
+    margin: -4px 25px
+    
+}
+}
+
+.well, .wellAdd{
+    margin-bottom: 200px;
+    padding: 40px;
+}
+
+
+
 
 
 
