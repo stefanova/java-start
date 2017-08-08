@@ -102,11 +102,7 @@ app.controller('addController', function($scope, $http, $window, addMsgService){
         console.error(error)
     });
         
-    } 
-
-   
-
-    
+    }    
     
 });
 
@@ -158,6 +154,15 @@ app.controller('ratingController', function($scope, $http){
 });
 
 app.controller('searchController', function($scope, $http){
+    
+     $http({ 
+        url: url + 'products/show',
+        dataType: 'json'
+    }).then( function(success){
+        $scope.products = success.data
+    }, function(error){
+        console.error(error);
+    });
     
     $scope.search = function(){
        $http({

@@ -1,6 +1,4 @@
 
-<!--   DO MORE TESTS WITH THIS FORM VALIDATION TOMORROW-->
-
    <div class="well">
     <div class="row">
 
@@ -8,25 +6,31 @@
     <div class="row">
         <div class="col-sm-6 col-md-offset-3">
             <div class="input-group ">
+               <h3> Nie znalazłeś produktu w naszej bazie? Dodaj go poprzez poniższy formularz. </h3>
+               <h5> Po dodaniu produktu zachęcamy do wystawienia mu oceny. </h5>
                 <form name="addForm" ng-submit="submitForm()" novalidate>
 
                     <div class="form-group" ng-class="{'has-error' : addForm.nameInput.$invalid && !addForm.nameInput.$pristine}">
-
                         <label>Nazwa </label>
-                        <input name="nameInput" type="text" class="form-control" placeholder="Podaj nazwę produktu" ng-model="name" ng-minlength = "2" ng-maxlength = "60" required>
-                        <p ng-show="addForm.nameInput.$invalid && !addForm.nameInput.$pristine" class="help-block">Ups!Brakuje nazwy produktu :( </p>
-                        <p ng-show="addForm.nameInput.$error.minlength" class="help-block">Minimalna ilość znakow = 2.</p>
-                        <p ng-show="addForm.nameInput.$error.maxlength" class="help-block">Maksymalna ilość znakow = 60.</p>
+                        <input name="nameInput" type="text" class="form-control" placeholder="Podaj nazwę produktu" ng-model="name" ng-minlength="3" ng-maxlength = "60" required> 
+                       <p ng-show="addForm.nameInput.$error.minlength" class="help-block">Nazwa produktu jest za krotka. </p>
+                        <p ng-show="addForm.nameInput.$error.maxlength" class="help-block">Maksymalna ilość znakow to 25.</p>
                     </div>
 
+                   
+                   
+                   
                     <div class="form-group" ng-class="{'has-error' : addForm.brandInput.$invalid && !addForm.brandInput.$pristine}">
                         <label>Marka</label>
-                        <input name="brandInput" type="text" class="form-control" placeholder="Podaj markę produktu" ng-model="brand" ng-minlength = "2" ng-maxlength = "60" required>
-                         <p ng-show="addForm.brandInput.$invalid && !addForm.brandInput.$pristine" class="help-block">Ups!Brakuje marki :( </p>
-                         <p ng-show="addForm.brandInput.$error.minlength" class="help-block">Minimalna ilość znakow = 2.</p>
-                        <p ng-show="addForm.brandInput.$error.maxlength" class="help-block">Maksymalna ilość znakow = 60.</p>
+                        <input name="brandInput" type="text" class="form-control" placeholder="Podaj markę produktu" ng-model="brand" ng-minlength="3" ng-maxlength = "60" required>
+                         
+                        <p ng-show="addForm.brandInput.$error.minlength" class="help-block">Nazwa marki jest za krotka. </p>
+                        <p ng-show="addForm.brandInput.$error.maxlength" class="help-block">Maksymalna ilość znakow to 25.</p>
                     </div>
-
+                    
+                    
+                    
+                    
                     <div class="form-group" ng-class="{'has-error' : addForm.photoInput.$invalid && !addForm.photoInput.$pristine}">
                         <label>Zdjęcie</label>
                         <input name="photoInput" type="text" class="form-control" placeholder="Wklej link do zdjęcia" ng-model="image" required>
@@ -35,13 +39,12 @@
 
                     <div class="form-group" ng-class="{'has-error' : addForm.commentInput.$invalid && !addForm.commentInput.$pristine}">
                         <label>Komentarz</label>
-                        <textarea ng-maxlength="160" ng-minlength="3" name="commentInput" class="form-control" placeholder="Masz 160 znakow, zeby powiedziec innym za co lubisz ten produkt :)" ng-model="comment" required></textarea>
-                         <p ng-show="addForm.commentInput.$invalid && !addForm.commentInput.$pristine" class="help-block"> A gdzie się podział komentarz? </p>
-                         <p ng-show="addForm.commentInput.$error.minlength" class="help-block">Minimalna ilość znakow = 2.</p>
-                        <p ng-show="addForm.commentInput.$error.maxlength" class="help-block">Maksymalna ilość znakow = 160.</p>
+                        <textarea ng-minlength="3" ng-maxlength="160"  name="commentInput" class="form-control" placeholder="Masz 160 znakow, zeby powiedziec innym za co lubisz ten produkt :)" ng-model="comment" required></textarea>
+                    
+                        <p ng-show="addForm.commentInput.$error.maxlength" class="help-block">Maksymalna ilość znakow to 160.</p>
                     </div>
 
-                    <button class="btn btn-success m-t-30 nput-group-btn" type="button" data-keyboard="true" ng-click="add(); redirect()" ng-disabled="addForm.$invalid">Dodaj </button>
+                    <button class=" myButton btn btn-success m-t-30 nput-group-btn" type="button" data-keyboard="true" ng-click="add(); redirect()" ng-disabled="addForm.$invalid">Dodaj </button>
                 </form>
             </div>
         </div>

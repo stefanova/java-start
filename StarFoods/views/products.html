@@ -1,9 +1,16 @@
-<div class="well col-lg-12">
+<div class="col-lg-12">
     <p> {{message}} </p>
-    <h3>Wszystkie produkty: </h3>
-    <div> 
-    
-    <p class=" productDisplay col-lg-2 col-md-4 col-sm-6 thumbnail" ng-repeat="product in products | orderBy: 'name'">  <a href="/#!show/{{ product.id}}"> {{product.name}} {{product.brand}} <img class="thumbnail" ng-src="{{product.image}}"/> </a></p>
-          
-        </div>
+    <h3 class="allProductsH3">Wszystkie produkty: </h3>
+    <div>
+        <ul>
+            <li class=" col-lg-3 col-md-4 col-sm-6 thumbnail  " ng-repeat="product in products | orderBy: 'name'">
+                <a href="/#!show/{{ product.id}}">
+                    <p class="spanBrand"> {{product.name}} {{product.brand}} </p><img class=" productPhoto" ng-src="{{product.image}}" alt="starfoods" /> </a>
+
+            </li>
+
+        </ul>
+
+
+    </div>
 </div>

@@ -4,16 +4,112 @@ font-family: 'Pacifico', cursive;
 font-family: 'Open Sans', sans-serif;
 */
 
-body{
+body {
     margin-top: 30px;
-    font-family: 'Josefin Sans', sans-serif;
-    background: beige;
+    font-family: 'Open Sans', sans-serif;
+    background: white;
 }
 
-.productDisplay{
-    border: solid;
-    box-sizing: inherit;
+.navbar-brand > img{
+    display: block;
+    width: 300px;
+    margin: -94px 10px 0 -83px;
 }
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.nav>li>a {
+    color: black;
+    font-size: 1.5em;
+    margin-left: 50px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: black;
+}
+
+.productComment {
+    position: absolute;
+    margin-top: -20px;
+    box-sizing: border-box;
+    border: solid;
+}
+
+@media only screen and (max-width: 1600px){
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      min-width: 70%;
+      margin: auto;
+      min-height: 300px;      
+    }
+.nav>li>a {
+    color: black;
+    font-size: 1.5em;
+    margin-left: -1px;
+}
+}
+
+@media only screen and (min-width: 992px) {
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      min-width: 60%;
+      margin: 0 auto;
+      min-height: 450px;     
+    }
+.nav>li>a {
+    color: black;
+    font-size: 1.5em;
+    margin-left: 60px;
+}
+}
+
+.descriptionMain{
+    margin: auto 0 15px 0;
+    float: left;
+    font-size: 1.5em;
+    border: solid;
+    border-radius: 8px;
+    border-color: lightgray;
+}
+
+.allProductsH3{
+    text-align: center;
+    background-color: #FFDA58;
+    max-width: 40%;
+    margin-left: 300px;
+    border: solid #FFDA58;
+    border-radius: 8px;
+}
+
+.btn-success{
+   
+    background-image: linear-gradient(to bottom, #FFC600 0,#FFDA58 100%);
+    border-color: #FFDA58;
+    min-width: 20%;
+    color: white;
+    padding: 10px;
+    float: right;
+    margin: 10px auto 20px;
+    
+}
+
+.btn-success.disabled, .btn-success.disabled.active, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled:focus, .btn-success.disabled:hover, .btn-success[disabled], .btn-success[disabled].active, .btn-success[disabled].focus, .btn-success[disabled]:active, .btn-success[disabled]:focus, .btn-success[disabled]:hover, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success.active, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:hover{
+   background-image: linear-gradient(to bottom, #FFC600 0,#FFDA58 100%);
+    background-color: #FFC600;
+    border-color: #FFC600;
+}
+
+.headerRanking{
+    margin: 0 0 20px 44px;
+}
+
+.form-control, .searchForm{
+    height: 50px;
+}
+
+
 
 
 
