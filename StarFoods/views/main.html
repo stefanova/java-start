@@ -20,7 +20,7 @@
             </div>
             
             <ul>
-                <li class=" productsViewMain img-thumbnail col-lg-3 col-md-4 col-sm-6 thumbnail" ng-repeat="product in products | limitTo: 8 ">
+                <li class=" productsViewMain img-thumbnail col-lg-3 col-md-4 col-sm-6 thumbnail" ng-repeat="product in products | limitTo: 6 ">
 
                     <a href="/#!show/{{ product.id}}">
                         <p class="spanBrand"> {{product.name}} {{product.brand}} </p> <img class=" productPhoto" ng-src="{{product.image}}" alt="starfoods" /> </a>

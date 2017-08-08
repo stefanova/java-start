@@ -102,11 +102,26 @@ body {
 }
 
 .headerRanking{
-    margin: 0 0 20px 44px;
+
+    text-align: center;
+    border: solid #FFDA58;
+    border-radius: 8px;
+    background-color: #FFDA58;
+    color: black;
 }
 
 .form-control, .searchForm{
     height: 50px;
+}
+
+.pScore{
+    background-color: coral;
+}
+
+.productImg{
+    box-sizing: border-box;
+    width: 400px;
+    height: 280px;
 }
 
 

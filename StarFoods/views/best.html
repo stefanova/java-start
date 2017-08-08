@@ -1,13 +1,16 @@
 
-<div class="well col-xs-12">
+<div class="bestWell col-xs-12">
     <h3 class="headerRanking">Produkty najwyżej oceniane przez naszych użytkownikow</h3>
        <ul> 
-        <li class="col-lg-3 col-md-4 col-sm-6 thumbnail" ng-repeat="product in products ">  <a href="/#!show/{{ product.id}}"> {{product.name}} {{product.brand}} </a>
+        <li class=" productsViewMain img-thumbnail col-lg-3 col-md-4 col-sm-6 thumbnail" ng-repeat="product in products ">  <a href="/#!show/{{ product.id}}"> <p class="spanBrand"> 
         
+        {{product.name}} 
+        </p>
         <img ng-src="{{product.image}}"/> 
         
-        
-        {{product.score | number:1}} </li>
+        </a>
+        <p class="pScore"> 
+        Ocena: {{product.score | number:1}} </p> </li>
         </ul>
         
    

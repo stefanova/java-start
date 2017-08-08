@@ -8,6 +8,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: row-reverse;
+    margin-left: -31px;
+    margin-bottom: 10px;
 }
 
 .stars input{
