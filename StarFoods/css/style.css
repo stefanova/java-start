@@ -127,8 +127,10 @@ body {
 
 .productImg{
     box-sizing: border-box;
-    width: 400px;
-    height: 280px;
+    width: 290px;
+    height: 230px;
+    padding: 30px;
+    margin-left: -70px;
 }
 
 .footer{
@@ -148,7 +150,14 @@ body {
     padding: 40px;
 }
 
+.starAddedMsg{
+    font-size: 1em;
+    margin-top: -200px;
+}
 
+.productMainDiv{
+    margin-left: 430px;
+}
 
 
 
